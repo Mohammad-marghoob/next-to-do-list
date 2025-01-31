@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { TableCell, TableRow } from "@/components/ui/table";
 
 interface TodoItemsProps {
@@ -17,6 +18,12 @@ export default function TodoItem({
   createdAt,
   toggleTodo,
 }: TodoItemsProps) {
+  const router = useRouter();
+
+  const refereshPage = () => {
+    router.refresh();
+  };
+
   return (
     <>
       <TableRow className={complete ? "bg-lime-500" : ""}>
@@ -26,7 +33,10 @@ export default function TodoItem({
             type="checkbox"
             className="cursor-pointer peer"
             defaultChecked={complete}
-            onChange={(e) => toggleTodo(id, e.target.checked)}
+            onChange={(e) => {
+              toggleTodo(id, e.target.checked);
+              refereshPage();
+            }}
           />
         </TableCell>
         <TableCell>{title}</TableCell>
