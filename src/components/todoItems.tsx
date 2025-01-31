@@ -1,5 +1,7 @@
 "use client";
 
+import { TableCell, TableRow } from "@/components/ui/table";
+
 interface TodoItemsProps {
   id: string;
   title: string;
@@ -16,9 +18,9 @@ export default function TodoItem({
   toggleTodo,
 }: TodoItemsProps) {
   return (
-    <div className="flex justify-between">
-      <div>
-        <li className="flex gap-1 items-center ">
+    <>
+      <TableRow className={complete ? "bg-lime-500" : ""}>
+        <TableCell className="font-medium">
           <input
             id={id}
             type="checkbox"
@@ -26,23 +28,17 @@ export default function TodoItem({
             defaultChecked={complete}
             onChange={(e) => toggleTodo(id, e.target.checked)}
           />
-          <label
-            htmlFor={id}
-            className="cursor-pointer peer-checked:line-through peer-checked:text-slate-500"
-          >
-            {title}
-          </label>
-        </li>
-      </div>
-
-      <div>
-        {createdAt.toLocaleDateString("en-us", {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}
-      </div>
-    </div>
+        </TableCell>
+        <TableCell>{title}</TableCell>
+        <TableCell className="text-right">
+          {createdAt.toLocaleDateString("en-us", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </TableCell>
+      </TableRow>
+    </>
   );
 }
