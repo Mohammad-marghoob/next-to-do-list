@@ -15,7 +15,6 @@ A modern Todo application built with **Next.js**, **Prisma**, **SQLite**, **shad
 
 ## Features
 
-- **CRUD Operations:** Create, read, update, and delete todo items.
 - **Type Safety:** Built with TypeScript for enhanced developer experience and fewer runtime errors.
 - **Modern UI:** Uses shadcn/ui for a sleek and modern design.
 - **Database Integration:** Utilizes Prisma as an ORM with SQLite for a lightweight, file-based database solution.
@@ -43,5 +42,6 @@ Follow these instructions to set up the project locally.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/Mohammad-marghoob/next-to-do-list.git
    cd todo-app
+   npm run dev / npm run build
